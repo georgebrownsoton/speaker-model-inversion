@@ -9,7 +9,7 @@
     font-family: Arial, Helvetica, sans-serif;
     background: #ffffff;
     color: #000000;
-    max-width: 800px;
+    max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
     line-height: 1.5;
@@ -43,7 +43,7 @@
   th, td {
     border: 1px solid #999999;
     padding: 8px 10px;
-    text-align: left;
+    text-align: center;
     font-size: 14px;
   }
 
@@ -51,8 +51,13 @@
     background: #f0f0f0;
   }
 
+  td.speaker-cell {
+    text-align: left;
+    white-space: nowrap;
+  }
+
   audio {
-    width: 190px;
+    width: 170px;
     height: 32px;
   }
 </style>
@@ -81,58 +86,94 @@ via MI attacks on speaker recognition models.
 
 <h2>Audio Samples</h2>
 <p>
-Reconstructions are grouped by VCTK accent and gender, with one example shown per victim
-model.
+Reconstructions are grouped by VCTK accent and gender, with the ground truth recording shown
+alongside reconstructions from each victim model under both loss functions.
 </p>
 
 <table>
   <thead>
     <tr>
-      <th>Speaker</th>
-      <th>SincNet</th>
-      <th>x-vector</th>
-      <th>ECAPA-TDNN</th>
+      <th rowspan="2">Speaker</th>
+      <th rowspan="2">Ground Truth</th>
+      <th colspan="2">SincNet</th>
+      <th colspan="2">x-vector</th>
+      <th colspan="2">ECAPA-TDNN</th>
+    </tr>
+    <tr>
+      <th>Logit Max</th>
+      <th>Cross-Entropy</th>
+      <th>Logit Max</th>
+      <th>Cross-Entropy</th>
+      <th>Logit Max</th>
+      <th>Cross-Entropy</th>
     </tr>
   </thead>
   <tbody>
 
     <tr>
-      <td>Southern English, Male</td>
-      <td><audio controls src="audio/southern_english_male_sincnet.wav"></audio></td>
-      <td><audio controls src="audio/southern_english_male_xvector.wav"></audio></td>
-      <td><audio controls src="audio/southern_english_male_ecapa.wav"></audio></td>
-    </tr>
-    <tr>
-      <td>Southern English, Female</td>
-      <td><audio controls src="audio/southern_english_female_sincnet.wav"></audio></td>
-      <td><audio controls src="audio/southern_english_female_xvector.wav"></audio></td>
-      <td><audio controls src="audio/southern_english_female_ecapa.wav"></audio></td>
+      <td class="speaker-cell">Southern English, Male (p226)</td>
+      <td><audio controls src="audio/p226_ground_truth.wav"></audio></td>
+      <td><audio controls src="audio/p226_sincnet_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p226_sincnet_ce.wav"></audio></td>
+      <td><audio controls src="audio/p226_xvector_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p226_xvector_ce.wav"></audio></td>
+      <td><audio controls src="audio/p226_ecapa_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p226_ecapa_ce.wav"></audio></td>
     </tr>
 
     <tr>
-      <td>Scottish, Male</td>
-      <td><audio controls src="audio/scottish_male_sincnet.wav"></audio></td>
-      <td><audio controls src="audio/scottish_male_xvector.wav"></audio></td>
-      <td><audio controls src="audio/scottish_male_ecapa.wav"></audio></td>
-    </tr>
-    <tr>
-      <td>Scottish, Female</td>
-      <td><audio controls src="audio/scottish_female_sincnet.wav"></audio></td>
-      <td><audio controls src="audio/scottish_female_xvector.wav"></audio></td>
-      <td><audio controls src="audio/scottish_female_ecapa.wav"></audio></td>
+      <td class="speaker-cell">Southern English, Female (p228)</td>
+      <td><audio controls src="audio/p228_ground_truth.wav"></audio></td>
+      <td><audio controls src="audio/p228_sincnet_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p228_sincnet_ce.wav"></audio></td>
+      <td><audio controls src="audio/p228_xvector_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p228_xvector_ce.wav"></audio></td>
+      <td><audio controls src="audio/p228_ecapa_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p228_ecapa_ce.wav"></audio></td>
     </tr>
 
     <tr>
-      <td>Northern American, Male</td>
-      <td><audio controls src="audio/northern_american_male_sincnet.wav"></audio></td>
-      <td><audio controls src="audio/northern_american_male_xvector.wav"></audio></td>
-      <td><audio controls src="audio/northern_american_male_ecapa.wav"></audio></td>
+      <td class="speaker-cell">Scottish, Male (p247)</td>
+      <td><audio controls src="audio/p247_ground_truth.wav"></audio></td>
+      <td><audio controls src="audio/p247_sincnet_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p247_sincnet_ce.wav"></audio></td>
+      <td><audio controls src="audio/p247_xvector_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p247_xvector_ce.wav"></audio></td>
+      <td><audio controls src="audio/p247_ecapa_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p247_ecapa_ce.wav"></audio></td>
     </tr>
+
     <tr>
-      <td>Northern American, Female</td>
-      <td><audio controls src="audio/northern_american_female_sincnet.wav"></audio></td>
-      <td><audio controls src="audio/northern_american_female_xvector.wav"></audio></td>
-      <td><audio controls src="audio/northern_american_female_ecapa.wav"></audio></td>
+      <td class="speaker-cell">Scottish, Female (p249)</td>
+      <td><audio controls src="audio/p249_ground_truth.wav"></audio></td>
+      <td><audio controls src="audio/p249_sincnet_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p249_sincnet_ce.wav"></audio></td>
+      <td><audio controls src="audio/p249_xvector_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p249_xvector_ce.wav"></audio></td>
+      <td><audio controls src="audio/p249_ecapa_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p249_ecapa_ce.wav"></audio></td>
+    </tr>
+
+    <tr>
+      <td class="speaker-cell">Northern American, Male (p311)</td>
+      <td><audio controls src="audio/p311_ground_truth.wav"></audio></td>
+      <td><audio controls src="audio/p311_sincnet_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p311_sincnet_ce.wav"></audio></td>
+      <td><audio controls src="audio/p311_xvector_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p311_xvector_ce.wav"></audio></td>
+      <td><audio controls src="audio/p311_ecapa_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p311_ecapa_ce.wav"></audio></td>
+    </tr>
+
+    <tr>
+      <td class="speaker-cell">Northern American, Female (p297)</td>
+      <td><audio controls src="audio/p297_ground_truth.wav"></audio></td>
+      <td><audio controls src="audio/p297_sincnet_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p297_sincnet_ce.wav"></audio></td>
+      <td><audio controls src="audio/p297_xvector_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p297_xvector_ce.wav"></audio></td>
+      <td><audio controls src="audio/p297_ecapa_logitmax.wav"></audio></td>
+      <td><audio controls src="audio/p297_ecapa_ce.wav"></audio></td>
     </tr>
 
   </tbody>
