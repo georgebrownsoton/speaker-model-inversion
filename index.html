@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inverting Speaker Characteristics via Model Inversion</title>
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #000000;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+
+  .author {
+    margin-bottom: 24px;
+    color: #333333;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-top: 40px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  th, td {
+    border: 1px solid #999999;
+    padding: 8px 10px;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  th {
+    background: #f0f0f0;
+  }
+
+  audio {
+    width: 190px;
+    height: 32px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Inverting Speaker Characteristics via Model Inversion</h1>
+<p class="author">George Brown</p>
+
+<h2>Abstract</h2>
+<p>
+Model inversion (MI) attacks reconstruct the training data from a trained machine learning
+model, but their application to speaker recognition remains underexplored, with prior work
+evaluating success only within the victim's own representation and unable to produce speaker
+characteristics corresponding with the individuals in the original dataset. We propose an MI
+attack that recovers the training voices from a speaker recognition model by optimising the
+speaker conditioning d-vector of a frozen zero-shot TTS system end-to-end through the frozen
+victim. We demonstrate using an independent evaluation model that our reconstructed voices
+contain speaker identity, gender and accent information. Across SincNet, x-vector and
+ECAPA-TDNN victims fine-tuned on 30 VCTK speakers, our attacks achieve an MI accuracy of
+98–100% within the victim's own embedding space, recover identity in the independent space
+at 23–63%, recover gender at 63–97%, and accent at 37–74%, with each result performing
+significantly above chance. Our results show that speaker identity information can be leaked
+via MI attacks on speaker recognition models.
+</p>
+
+<h2>Audio Samples</h2>
+<p>
+Reconstructions are grouped by VCTK accent and gender, with one example shown per victim
+model.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Speaker</th>
+      <th>SincNet</th>
+      <th>x-vector</th>
+      <th>ECAPA-TDNN</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>Southern English, Male</td>
+      <td><audio controls src="audio/southern_english_male_sincnet.wav"></audio></td>
+      <td><audio controls src="audio/southern_english_male_xvector.wav"></audio></td>
+      <td><audio controls src="audio/southern_english_male_ecapa.wav"></audio></td>
+    </tr>
+    <tr>
+      <td>Southern English, Female</td>
+      <td><audio controls src="audio/southern_english_female_sincnet.wav"></audio></td>
+      <td><audio controls src="audio/southern_english_female_xvector.wav"></audio></td>
+      <td><audio controls src="audio/southern_english_female_ecapa.wav"></audio></td>
+    </tr>
+
+    <tr>
+      <td>Scottish, Male</td>
+      <td><audio controls src="audio/scottish_male_sincnet.wav"></audio></td>
+      <td><audio controls src="audio/scottish_male_xvector.wav"></audio></td>
+      <td><audio controls src="audio/scottish_male_ecapa.wav"></audio></td>
+    </tr>
+    <tr>
+      <td>Scottish, Female</td>
+      <td><audio controls src="audio/scottish_female_sincnet.wav"></audio></td>
+      <td><audio controls src="audio/scottish_female_xvector.wav"></audio></td>
+      <td><audio controls src="audio/scottish_female_ecapa.wav"></audio></td>
+    </tr>
+
+    <tr>
+      <td>Northern American, Male</td>
+      <td><audio controls src="audio/northern_american_male_sincnet.wav"></audio></td>
+      <td><audio controls src="audio/northern_american_male_xvector.wav"></audio></td>
+      <td><audio controls src="audio/northern_american_male_ecapa.wav"></audio></td>
+    </tr>
+    <tr>
+      <td>Northern American, Female</td>
+      <td><audio controls src="audio/northern_american_female_sincnet.wav"></audio></td>
+      <td><audio controls src="audio/northern_american_female_xvector.wav"></audio></td>
+      <td><audio controls src="audio/northern_american_female_ecapa.wav"></audio></td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>
